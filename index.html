@@ -4,11 +4,40 @@
 
     <head>
 	    <title>A Basic HTML Page</title>
+
+        <script>
+            function setColor()
+            {
+                const hour = new Date().getHours();
+                let color;
+
+                if (hour >=6 && hour < 12)
+                {
+                    color = "#f5a742";
+                }
+                else if(hour >= 12 && hour < 18)
+                {
+                    color = "#4284f5";
+                }
+                else if(hour >=18 && hour < 21)
+                {
+                    color = "#142063";
+                }
+                else
+                {
+                    color = "#050d3d";
+                }
+
+                document.body.style.backgroundColor = color;
+            }
+
+            window.onload = setColor;
+        </script>
     </head>
 
     <!-- Basic information below under subsequent headings-->
     <body>
-        <h1> A Basic HTML Page</h1>
+        <h1> Welcome to my dynamic webpage!</h1>
 	    <h2>Name</h2>
             <p>Mark Waskelis</p>
         <h2>Course Name</h2>
