@@ -4,37 +4,19 @@
 
     <head>
 	    <title>Dynamic HTML Page</title>
-
-        <!--javascript that gets the current time, then sets hex color to background based on hour of day-->
-        <script>
-            function setColor()
-            {
-                const hour = new Date().getHours();
-                let color;
-
-                if (hour >=6 && hour < 12)
-                {
-                    color = "#f5a742";
-                }
-                else if(hour >= 12 && hour < 18)
-                {
-                    color = "#4284f5";
-                }
-                else if(hour >=18 && hour < 21)
-                {
-                    color = "#142063";
-                }
-                else
-                {
-                    color = "#050d3d";
-                }
-
-                document.body.style.backgroundColor = color;
+        
+        <!-- set image size-->
+        <style>
+            img{
+                max-width: 80%;
+                height: auto;
+                border: 2px solid #ccc;
+                border-radius: 10px;
             }
 
-            window.onload = setColor;
-        </script>
-    </head>
+        </style>
+
+
 
     <!-- Basic information below under subsequent headings-->
     <body>
@@ -45,6 +27,42 @@
             <p>COP4813</p>
         <h2>Major</h2>
             <p>Computer Science</p>
+
+        <div>
+            <img id="image" src="" alt="Time Image">
+        </div>
+        
     </body>
+
+
+
+        <!--javascript that gets the current time, then sets img source based on hour of day-->
+        <script>
+            function setImage()
+            {
+                const img = document.getElementById("image");
+                const hour = new Date().getHours();
+                let color;
+
+                if (hour >=6 && hour < 12)
+                {
+                    img.src = "morning.png";
+                }
+                else if(hour >= 12 && hour < 18)
+                {
+                    img.src = "afternoon.png";
+                }
+                else    
+                {
+                    img.src = "night.png";
+                }
+
+            }
+
+            window.onload = setImage;
+        </script>
+    </head>
+
+ 
 
 </html>
