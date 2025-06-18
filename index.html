@@ -5,63 +5,76 @@
     <head>
 	    <title>Dynamic HTML Page</title>
         
-        <!-- set image size-->
+        <!--set configs-->
         <style>
-            img{
-                max-width: 80%;
-                height: auto;
-                border: 2px solid #ccc;
-                border-radius: 10px;
+            ul{
+                list-style: none;
+                padding: 0;
+                margin: 10px 0 30px 0;
+                display: none;
+            }
+            li a{
+                display: block;
+                padding: 8px;
+                text-decoration: none;
+                color: black;
+                border: 1px solid white;
+                margin: 5px auto;
+                width: 200px;
+                border-radius: 5px;
+            }
+            li a:hover{
+                background-color: blue;
+                color: white;
             }
 
         </style>
+    </head>
 
-
-
-    <!-- Basic information below under subsequent headings-->
+    <!-- heading and subjects/topic below-->
     <body>
-        <h1> Welcome To My Dynamic Webpage!</h1>
-	    <h2>Name</h2>
-            <p>Mark Waskelis</p>
-        <h2>Course Name</h2>
-            <p>COP4813</p>
-        <h2>Major</h2>
-            <p>Computer Science</p>
+        <h1> Welcome, Choose A Subject!</h1>
+        <p>Mark Waskelis</p>
+        <p>COP4813</p>
 
         <div>
-            <img id="image" src="" alt="Time Image">
+            <h2 onclick="topic('math')">Math</h2>
+            <ul id="math">
+                <li><a href="./topics/algebra.html">Algebra</a></li>
+                <li><a href="./topics/geometry.html">Geometry</a></li>
+                <li><a href="./topics/calculus.html">Calculus</a></li>
+                <li><a href="./topics/statistics.html">Statistics</a></li>
+            </ul>
+
+            <h2 onclick="topic('science')">Science</h2>
+            <ul id="science">
+                <li><a href="./topics/biology.html">Biology</a></li>
+                <li><a href="./topics/physics.html">Physics</a></li>
+                <li><a href="./topics/chemistry.html">Chemistry</a></li>
+                <li><a href="./topics/earthscience.html">Earth Science</a></li>
+            </ul>
+
+            <h2 onclick="topic('cs')">Computer Science</h2>
+            <ul id="cs">
+                <li><a href="./topics/logic.html">Logic</a></li>
+                <li><a href="./topics/oop.html">Object Oriented Programming</a></li>
+                <li><a href="./topics/databases.html">Databases</a></li>
+                <li><a href="./topics/frontend.html">Front-end Development</a></li>
+            </ul>
         </div>
+
+
+
+        <script>
+            function topic(id){
+                document.querySelectorAll("ul").forEach(ul => ul.style.display = "none");
+
+                const list = document.getElementById(id);
+                list.style.display = list.style.display === "block" ? "none": "block";
+            }
+        </script>
         
     </body>
-
-
-
-        <!--javascript that gets the current time, then sets img source based on hour of day-->
-        <script>
-            function setImage()
-            {
-                const img = document.getElementById("image");
-                const hour = new Date().getHours();
-                let color;
-
-                if (hour >=6 && hour < 12)
-                {
-                    img.src = "morning.png";
-                }
-                else if(hour >= 12 && hour < 18)
-                {
-                    img.src = "afternoon.png";
-                }
-                else    
-                {
-                    img.src = "night.png";
-                }
-
-            }
-
-            window.onload = setImage;
-        </script>
-    </head>
 
  
 
